@@ -26,10 +26,14 @@ app.post('/', async (req, res) => {
 
     try {
         let www = req.body.url
-        console.log(typeof (www))
         let response, html, $, description, ogType;
         let array = {};
-        response = await axios.get(www)
+        try {
+            response = await axios.get(www)
+        } catch (e) {
+            response = await axios.get(`http://${www}`)
+        }
+
         html = response.data;
         array = [];
         $ = cheerio.load(html);
