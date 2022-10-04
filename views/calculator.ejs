@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="calculator">
+        <div id="screen" class="screen"></div>
+        <div class="buttons">
+            <button>&larr;</button>
+            <button>+</button>
+            <button>AC</button>
+            <button>*</button>
+            <button>-</button>
+            <button>/</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>.</button>
+            <button>0</button>
+            <button>=</button>
+        </div>
+    </div>
+    <script>
+        const display = document.getElementById('screen');
+        const buttons = [...document.getElementsByTagName('button')]
+        ops = ['+', '-', '/', '*', '.']
+        buttons.map((button) => {
+            button.addEventListener('click', (e) => {
+                switch (e.target.innerText) {
+                    case 'AC':
+                        display.innerText = ''
+                        break;
+                    case '←':
+                        display.innerText = display.innerText.slice(0, -1)
+                        break;
+                    case '=':
+                        if (ops.includes(display.innerText[display.innerText.length - 1]) || display.innerText == '') {
+                            break;
+                        }
+                        try {
+                            display.innerText = eval(display.innerText)
+                        } catch (error) {
+                            display.innerText = 'Error'
+                        }
+                        break;
+                    case '*':
+                        if (ops.includes(display.innerText[display.innerText.length - 1]) || display.innerText == '') {
+                            break;
+                        }
+                        display.innerText += e.target.innerText
+                        break;
+                    case '+':
+                        if (ops.includes(display.innerText[display.innerText.length - 1]) || display.innerText == '') {
+                            break;
+                        }
+                        display.innerText += e.target.innerText
+                        break;
+                    case '-':
+                        if (ops.includes(display.innerText[display.innerText.length - 1]) || display.innerText == '') {
+                            break;
+                        }
+                        display.innerText += e.target.innerText
+                        break;
+                    case '/':
+                        if (ops.includes(display.innerText[display.innerText.length - 1]) || display.innerText == '') {
+                            break;
+                        }
+                        display.innerText += e.target.innerText
+                        break;
+                    default:
+                        display.innerText += e.target.innerText
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

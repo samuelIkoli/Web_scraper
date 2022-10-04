@@ -1,0 +1,29 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;  
+}
+
+.calculator{
+    width: 30%;
+}
+
+.screen{
+    background-color: beige;
+    height: 2rem;
+    display: flex;
+    justify-content: right;
+    padding-right: 5px;
+    align-items: center;
+}
+
+.buttons{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.buttons button{
+    height: 2rem;
+}

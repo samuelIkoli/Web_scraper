@@ -20,6 +20,10 @@ app.get('/', (req, res) => {
     let array = {}
     let Image = ""
     res.render('index', { array, Image })
+});
+
+app.get('/calc', (req, res) => {
+    res.render('calculator')
 })
 
 app.post('/', async (req, res) => {
